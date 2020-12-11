@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
 function App() {
-  
+  const [books, setBooks] = useState(null);
+
   const apiURL = 'https://www.anapioficeandfire.com/api/books?pageSize=30';
 
   return (
