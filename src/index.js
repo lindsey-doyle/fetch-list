@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
+import axios from 'axios';
 
 function App() {
   const [books, setBooks] = useState(null);
 
   const apiURL = 'https://www.anapioficeandfire.com/api/books?pageSize=30';
+
+  // Function to make api request
+  const fetchData = async () => {
+    // make request
+    const response = await axios.get(apiURL).then(response => {
+      console.log(response.data);
+      // set state variable to request data
+      setBooks(response.data);
+    }, error => {
+      console.log(error);
+    });
+  };
 
   return (
     <div className="App">
@@ -15,7 +28,7 @@ function App() {
 
       {/* Fetch data from API */}
       <div>
-        <button className="fetch-button">Fetch Data</button>
+        <button className="fetch-button" onClick={fetchData} >Fetch Data</button>
         <br />
       </div>
 
@@ -23,7 +36,7 @@ function App() {
 
       {/* Use JSX below for each book */}
       <div className="books">
-
+{books && 
         <div className="book">
           <h3>Book Number</h3>
           <h2>Book Name</h2>
@@ -34,7 +47,7 @@ function App() {
             <p>⏰: Release date</p>
           </div>
         </div>
-
+}
       </div>
 
     </div>
