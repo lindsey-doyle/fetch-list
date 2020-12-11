@@ -36,18 +36,26 @@ function App() {
 
       {/* Use JSX below for each book */}
       <div className="books">
-{books && 
-        <div className="book">
-          <h3>Book Number</h3>
-          <h2>Book Name</h2>
-          <div className="details">
-            <p>👨: Author/Authors</p>
-            <p>📖: Number of pages</p>
-            <p>🏘️: Book Country</p>
-            <p>⏰: Release date</p>
-          </div>
-        </div>
-}
+        {books &&
+          books.map((book, index) => {
+            const cleanedDate = new Date(book.released).toDateString();
+            const authors = book.authors.join(', ');
+
+            return (
+              <div className="book" key={index}>
+                <h3>Book {index + 1}</h3>
+                <h2>{book.name}</h2>
+
+                <div className="details">
+                  <p>👨: {authors}</p>
+                  <p>📖: {book.numberOfPages} pages</p>
+                  <p>🏘️: {book.country}</p>
+                  <p>⏰: {cleanedDate}</p>
+                </div>
+              </div>
+            );
+        })}
+
       </div>
 
     </div>
