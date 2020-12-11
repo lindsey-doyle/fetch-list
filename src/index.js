@@ -1,8 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './styles.css';
+
+function App() {
+  
+  const apiURL = 'https://www.anapioficeandfire.com/api/books?pageSize=30';
+
+  return (
+    <div className="App">
+
+      <h1>Game of Thrones Books</h1>
+      <h2>Fetch a list from an API and display it</h2>
+
+      {/* Fetch data from API */}
+      <div>
+        <button className="fetch-button">Fetch Data</button>
+        <br />
+      </div>
+
+      {/* Display data from API */}
+
+      {/* Use JSX below for each book */}
+      <div className="books">
+
+        <div className="book">
+          <h3>Book Number</h3>
+          <h2>Book Name</h2>
+          <div className="details">
+            <p>👨: Author/Authors</p>
+            <p>📖: Number of pages</p>
+            <p>🏘️: Book Country</p>
+            <p>⏰: Release date</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,8 +46,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
