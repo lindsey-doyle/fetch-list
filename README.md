@@ -1,5 +1,12 @@
 # README
 
+Fetch and display data from an API.  
+[[view live]](https://main.dix87g5otwowv.amplifyapp.com/)  
+
+  
+  
+
+
 Dependencies:
 
   - [Axios](https://www.npmjs.com/package/axios)  
